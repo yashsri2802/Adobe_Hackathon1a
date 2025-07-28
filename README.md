@@ -41,20 +41,20 @@ You can install these dependencies using the requirements.txt file.
 1. Clone the repository:<br/>
 First, clone this repository to your local machine.
 
-git clone https://github.com/yashsri2802/Adobe_Hackathon1a
+git clone https://github.com/yashsri2802/Adobe_Hackathon1a<br/>
 cd adobe round1a new<br/>
 
-2. Build the Docker container
+2. Build the Docker container :
 Ensure you have Docker installed on your system. If not, install it from [here](https://www.docker.com/products/docker-desktop/).
 
 Then, build the Docker image:
 
-docker build -t adobe-parser .
+docker build -t adobe-parser . <br/>
 This command will build the container using the Dockerfile provided.
 
 Install all dependencies specified in requirements.txt.
 
-3. Run the Docker container
+3. Run the Docker container :
 After building the Docker image, you can run the container to process a PDF file. The script will look for PDFs inside the input/ folder and generate a structured JSON file in output.json.
 
 **To run the container:**
@@ -91,7 +91,7 @@ The result will be saved in the output/output.json file, which will contain the 
             "language": "en"
         }
     ]
-}
+}<br/>
 5. Add More PDFs
 You can add any number of PDFs to the input/ folder, and the script will process all pdfs found in that folder.
 
