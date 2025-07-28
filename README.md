@@ -16,7 +16,7 @@
 
 A Python tool to extract headings from multilingual PDFs and output them as structured JSON files. It supports dynamic PDF parsing for any language and automatically detects headings (H1, H2) using font size and bold formatting. This tool runs in a Docker container for portability.
 
-Folder Structure
+## Folder Structure :
 
 adobe round1a new/<br/>
 ├── Dockerfile               # Docker configuration<br/>
