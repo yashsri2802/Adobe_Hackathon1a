@@ -18,14 +18,14 @@ A Python tool to extract headings from multilingual PDFs and output them as stru
 
 Folder Structure
 
-adobe_pdf_parser/
-├── Dockerfile               # Docker configuration
-├── main.py                  # Python script to process PDF and extract outline
-├── requirements.txt         # Dependencies for the project
-├── input/                   # Folder to store input PDFs for processing
-│   └── your-test.pdf        # Example PDF file
-└── output/                  # Folder where output JSON files will be stored
-    └── output.json          # Output JSON generated after processing PDF
+adobe_pdf_parser/<br/>
+├── Dockerfile               # Docker configuration<br/>
+├── main.py                  # Python script to process PDF and extract outline<br/>
+├── requirements.txt         # Dependencies for the project<br/>
+├── input/                   # Folder to store input PDFs for processing<br/>
+│   └── your-test.pdf        # Example PDF file<br/>
+└── output/                  # Folder where output JSON files will be stored<br/>
+    └── output.json          # Output JSON generated after processing PDF<br/>
 
 Dependencies
 This project requires the following Python libraries:
