@@ -24,8 +24,8 @@ adobe round1a new/<br/>
 ├── requirements.txt         # Dependencies for the project<br/>
 ├── input/                   # Folder to store input PDFs for processing<br/>
 │   └── your-test.pdf        # Example PDF file<br/>
-└── output/                  # Folder where output JSON files will be stored
-    └── output.json          # Output JSON generated after processing PDF<br/>
+└── output/                  # Folder where output JSON files will be stored<br/>
+|    └── output.json          # Output JSON generated after processing PDF<br/>
 
 ## Dependencies :
 This project requires the following Python libraries:
