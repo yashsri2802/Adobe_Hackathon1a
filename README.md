@@ -27,54 +27,48 @@ adobe round1a new/<br/>
 └── output/                  # Folder where output JSON files will be stored<br/>
     └── output.json          # Output JSON generated after processing PDF<br/>
 
-Dependencies
+## Dependencies :
 This project requires the following Python libraries:
 
-pymupdf: For PDF text extraction and analysis.
+1. pymupdf: For PDF text extraction and analysis.
 
-langdetect: For detecting the language of the extracted headings.
+2. langdetect: For detecting the language of the extracted headings.
 
 You can install these dependencies using the requirements.txt file.
 
-How to Set Up and Run
+## How to Set Up and Run :
+
 1. Clone the repository:<br/>
 First, clone this repository to your local machine.
 
-
 git clone https://github.com/yashsri2802/Adobe_Hackathon1a
 cd adobe round1a new<br/>
+
 2. Build the Docker container
-Ensure you have Docker installed on your system. If not, install it from here.
+Ensure you have Docker installed on your system. If not, install it from [here](https://www.docker.com/products/docker-desktop/).
 
 Then, build the Docker image:
 
 docker build -t adobe-parser .
-This command will:
-
-Build the container using the Dockerfile provided.
+This command will build the container using the Dockerfile provided.
 
 Install all dependencies specified in requirements.txt.
 
 3. Run the Docker container
 After building the Docker image, you can run the container to process a PDF file. The script will look for PDFs inside the input/ folder and generate a structured JSON file in output.json.
 
-To run the container:
-
+**To run the container:**
 docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" adobe-parser
 This command will:
 
-Mount the input/ folder of your local machine to the container.
-
-Mount the output/ folder to store the output.json file.
+- Mount the input/ folder of your local machine to the container.
+- Mount the output/ folder to store the output.json file.
 
 The script will process the first PDF it finds in the input/ folder and generate output.json in the output/ folder.
 
 4. Check Output
 The result will be saved in the output/output.json file, which will contain the extracted headings and their detected language. Here's an example output:
 
-json
-Copy
-Edit
 {
     "title": "",
     "outline": [
@@ -83,13 +77,13 @@ Edit
             "text": "परिचय ",
             "page": 0,
             "language": "hi"
-        },
+        },<br/>
         {
             "level": "H2",
             "text": "目的 ",
             "page": 1,
             "language": "ja"
-        },
+        },<br/>
         {
             "level": "H1",
             "text": "Introduction ",
@@ -99,7 +93,7 @@ Edit
     ]
 }
 5. Add More PDFs
-You can add any number of PDFs to the input/ folder, and the script will process the first PDF found in that folder.
+You can add any number of PDFs to the input/ folder, and the script will process all pdfs found in that folder.
 
-Docker Workflow<br/>
+# Docker Workflow<br/>
 If you want to run this tool without worrying about your environment, Docker makes it easy. With the provided Docker configuration, you can build the container, run it, and process any PDFs by simply adding them to the input/ folder.
