@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz 
 import os
 import json
 from langdetect import detect
@@ -27,7 +27,6 @@ def extract_headings_from_pdf(pdf_path):
                     font_flags = spans[0]["flags"]
                     is_bold = font_flags & 2 != 0
 
-                    # Save for language detection
                     text_snippets.append(text)
 
                     if font_size > 14 or is_bold:
@@ -65,7 +64,7 @@ def main():
             with open(output_path, "w", encoding="utf-8") as f:
                 json.dump(result, f, ensure_ascii=False, indent=4)
 
-            print(f"✅ {output_filename} generated.")
+            print(f"{output_filename} generated.")
 
 if __name__ == "__main__":
     main()
