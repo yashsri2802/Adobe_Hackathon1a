@@ -41,16 +41,13 @@ How to Set Up and Run
 First, clone this repository to your local machine.
 
 
-git clone <repository-url>
-cd adobe_pdf_parser
+git clone https://github.com/yashsri2802/Adobe_Hackathon1a
+cd adobe round1a new new<br/>
 2. Build the Docker container
 Ensure you have Docker installed on your system. If not, install it from here.
 
 Then, build the Docker image:
 
-bash
-Copy
-Edit
 docker build -t adobe-parser .
 This command will:
 
@@ -63,9 +60,6 @@ After building the Docker image, you can run the container to process a PDF file
 
 To run the container:
 
-bash
-Copy
-Edit
 docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" adobe-parser
 This command will:
 
