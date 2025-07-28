@@ -37,12 +37,12 @@ langdetect: For detecting the language of the extracted headings.
 You can install these dependencies using the requirements.txt file.
 
 How to Set Up and Run
-1. Clone the repository
+1. Clone the repository:<br/>
 First, clone this repository to your local machine.
 
 
 git clone https://github.com/yashsri2802/Adobe_Hackathon1a
-cd adobe round1a new new<br/>
+cd adobe round1a new<br/>
 2. Build the Docker container
 Ensure you have Docker installed on your system. If not, install it from here.
 
