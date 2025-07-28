@@ -18,7 +18,7 @@ A Python tool to extract headings from multilingual PDFs and output them as stru
 
 Folder Structure
 
-adobe_pdf_parser/<br/>
+adobe round1a new/<br/>
 ├── Dockerfile               # Docker configuration<br/>
 ├── main.py                  # Python script to process PDF and extract outline<br/>
 ├── requirements.txt         # Dependencies for the project<br/>
