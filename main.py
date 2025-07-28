@@ -1,14 +1,13 @@
-import fitz  # PyMuPDF
+import fitz 
 import os
 import json
-from langdetect import detect
 
 def extract_headings_from_pdf(pdf_path):
     doc = fitz.open(pdf_path)
     outline = []
-    title = "Unknown Title"
     combined_title = []
     text_snippets = []
+    fallback_title = None  
 
     for page_num in range(len(doc)):
         page = doc[page_num]
@@ -27,9 +26,11 @@ def extract_headings_from_pdf(pdf_path):
                     font_flags = spans[0]["flags"]
                     is_bold = font_flags & 2 != 0
 
-                    # Save for language detection
-                    text_snippets.append(text)
+                
+                    if page_num == 0 and fallback_title is None:
+                        fallback_title = text
 
+                    
                     if font_size > 14 or is_bold:
                         level = "H1" if font_size >= 16 else "H2"
                         heading = {
@@ -41,11 +42,10 @@ def extract_headings_from_pdf(pdf_path):
                         if page_num == 0 and level == "H1":
                             combined_title.append(text)
 
-    language = detect(" ".join(text_snippets[:10])) if text_snippets else "unknown"
+    title = " ".join(combined_title).strip() or fallback_title or "Unknown Title"
 
     return {
-        "title": " ".join(combined_title).strip(),
-        "language": language,
+        "title": title.strip(),
         "outline": outline
     }
 
@@ -54,18 +54,23 @@ def main():
     output_dir = "output"
     os.makedirs(output_dir, exist_ok=True)
 
-    for filename in os.listdir(input_dir):
-        if filename.endswith(".pdf"):
-            pdf_path = os.path.join(input_dir, filename)
-            result = extract_headings_from_pdf(pdf_path)
+    pdf_files = [f for f in os.listdir(input_dir) if f.endswith(".pdf")]
 
-            output_filename = f"output_{os.path.splitext(filename)[0]}.json"
-            output_path = os.path.join(output_dir, output_filename)
+    if not pdf_files:
+        print("❌ No PDF files found in the input folder.")
+        return
 
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(result, f, ensure_ascii=False, indent=4)
+    for filename in pdf_files:
+        pdf_path = os.path.join(input_dir, filename)
+        result = extract_headings_from_pdf(pdf_path)
 
-            print(f"✅ {output_filename} generated.")
+        output_filename = f"output_{os.path.splitext(filename)[0]}.json"
+        output_path = os.path.join(output_dir, output_filename)
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=4)
+
+        print(f"✅ Processed: {filename} ➜ {output_filename}")
 
 if __name__ == "__main__":
     main()
