@@ -92,7 +92,7 @@ The result will be saved in the output/output.json file, which will contain the 
         }
     ]
 }<br/>
-5. Add More PDFs
+ 5. Add More PDFs :
 You can add any number of PDFs to the input/ folder, and the script will process all pdfs found in that folder.
 
 # Docker Workflow<br/>
